@@ -339,6 +339,7 @@ nav li a:after {
   border: 1px var(--color-primary) solid;
   transition: all 0.3s;
   overflow: hidden;
+  line-height: 0;
 }
 
 .showcased-item .major-visual:not(.non-link):hover,
