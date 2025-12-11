@@ -3,12 +3,9 @@
 :root {
   --color-primary: #673479;
   --color-primary-light: #dfa6ed;
-  --color-secondary: #e034a9;
-  --color-secondary-dark: #9a2374;
-  --color-accent: #d425a9;
-  --color-accent-light: #bd34d7;
-  --color-gradient-right: #e65cb1;
-  --color-blue: #40afd4;
+  --color-secondary: #BB4485;
+  --color-accent: #3b9ab9;
+  --color-accent-dark: #2e768e;
   --color-white: #fff;
   --color-shadow: #673479cc;
 }
@@ -140,11 +137,11 @@ input[type="submit"] {
 }
 
 a:link {
-  color: var(--color-secondary);
+  color: var(--color-accent-dark);
 }
 
 a:visited {
-  color: var(--color-secondary-dark);
+  color: var(--color-secondary);
 }
 
 .centered {
@@ -190,13 +187,13 @@ img {
 }
 
 nav {
-  background-color: var(--color-accent);
+  background-color: var(--color-secondary);
   color: var(--color-white);
   text-transform: lowercase;
   margin: 0;
   margin-top: 0;
   padding: 20px;
-  border-bottom: 12px var(--color-blue) solid;
+  border-bottom: 12px var(--color-accent) solid;
   font-family: Gravity, sans-serif;
   height: auto;
   float: right;
@@ -269,10 +266,7 @@ nav li a:after {
 }
 
 .intro-container {
-  background: linear-gradient(
-    var(--color-accent-light),
-    var(--color-gradient-right)
-  );
+  background: linear-gradient(#bd34d7, #e65cb1);
   height: 40vw;
   display: flex;
   align-items: center;
@@ -461,12 +455,12 @@ summary {
 
 footer {
   color: var(--color-white);
-  background-color: var(--color-accent);
+  background-color: var(--color-secondary);
   padding: 15px;
   text-align: right;
   font-family: GravityLight;
   font-weight: lighter;
-  border-bottom: 5px var(--color-blue) solid;
+  border-bottom: 5px var(--color-accent) solid;
   font-size: 1rem;
   margin-top: 60px;
 }
