@@ -1,5 +1,18 @@
 /* general */
 
+:root {
+  --color-primary: #673479;
+  --color-primary-light: #dfa6ed;
+  --color-secondary: #e034a9;
+  --color-secondary-dark: #9a2374;
+  --color-accent: #d425a9;
+  --color-accent-light: #bd34d7;
+  --color-gradient-right: #e65cb1;
+  --color-blue: #40afd4;
+  --color-white: #fff;
+  --color-shadow: #673479cc;
+}
+
 html,
 body {
   margin: 0;
@@ -10,7 +23,7 @@ body {
   background: linear-gradient(#fff4ff, #ffe9ff);
   background-attachment: fixed;
   font-family: GravityLight, sans-serif;
-  color: #673479;
+  color: var(--color-primary);
 }
 
 header {
@@ -19,7 +32,7 @@ header {
 }
 
 h1 {
-  color: #673479;
+  color: var(--color-primary);
   font-size: 3rem;
   text-align: center;
 }
@@ -32,7 +45,7 @@ h1 {
 }
 
 header h1 {
-  color: #ffffff;
+  color: var(--color-white);
   background: none;
   text-align: 0;
   margin-bottom: 0;
@@ -61,20 +74,20 @@ h4 {
 }
 
 h2 {
-  color: #fff;
+  color: var(--color-white);
   max-width: 10em;
   padding: 15px;
   box-sizing: border-box;
   font-size: 3rem;
   font-family: GravityBold, sans-serif;
-  background-color: #673479;
+  background-color: var(--color-primary);
   transform: rotate(-2deg);
   margin-top: 60px;
 }
 
 h3 {
-  background-color: #dfa6ed;
-  color: #673479;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
   padding: 15px;
   box-sizing: border-box;
   font-size: 1.75rem;
@@ -127,11 +140,11 @@ input[type="submit"] {
 }
 
 a:link {
-  color: #e034a9;
+  color: var(--color-secondary);
 }
 
 a:visited {
-  color: #9a2374;
+  color: var(--color-secondary-dark);
 }
 
 .centered {
@@ -163,7 +176,7 @@ img {
 /* header/navigation */
 
 .logo-container {
-  background-color: #e034a9;
+  background-color: var(--color-secondary);
 }
 
 .logo {
@@ -177,13 +190,13 @@ img {
 }
 
 nav {
-  background-color: #d425a9;
-  color: #ffffff;
+  background-color: var(--color-accent);
+  color: var(--color-white);
   text-transform: lowercase;
   margin: 0;
   margin-top: 0;
   padding: 20px;
-  border-bottom: 12px #40afd4 solid;
+  border-bottom: 12px var(--color-blue) solid;
   font-family: Gravity, sans-serif;
   height: auto;
   float: right;
@@ -215,21 +228,21 @@ nav li a {
   transition: background-color 0.2s, border-bottom 0.2s, color 0.2s,
     padding 0.2s;
   text-decoration: none;
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 nav li a:link {
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 nav li a:visited {
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 nav li a:hover {
-  color: #673479;
-  background-color: #ffffff;
-  border-color: #673479;
+  color: var(--color-primary);
+  background-color: var(--color-white);
+  border-color: var(--color-primary);
   border-bottom-width: 22px;
   border-bottom-style: solid;
   padding-left: 32px;
@@ -256,9 +269,12 @@ nav li a:after {
 }
 
 .intro-container {
-  background: linear-gradient(#bd34d7, #e65cb1);
+  background: linear-gradient(
+    var(--color-accent-light),
+    var(--color-gradient-right)
+  );
   height: 40vw;
-	display: flex;
+  display: flex;
   align-items: center;
 }
 
@@ -275,12 +291,12 @@ nav li a:after {
 }
 
 .p-container {
-  color: #673479;
+  color: var(--color-primary);
   background-color: rgba(255, 255, 255, 0.75);
   padding-bottom: 10px;
   border-radius: 7px;
   animation: fadein-and-down 1.25s;
-  box-shadow: 0 0 10px #ffffff;
+  box-shadow: 0 0 10px var(--color-white);
   max-width: 30em;
   margin-left: auto;
   margin-right: auto;
@@ -317,9 +333,23 @@ nav li a:after {
   margin-inline: auto;
 }
 
-.showcased-item img {
-  border-radius: .5rem;
-  box-shadow: 0 0 1rem #673479cc;
+.showcased-item .major-visual {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem var(--color-shadow);
+  border: 1px var(--color-primary) solid;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.showcased-item .major-visual:not(.non-link):hover,
+.major-visual:not(.non-link):focus {
+  box-shadow: 0 0 1.25rem 0.7rem var(--color-primary);
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.showcased-item .non-link {
+  box-shadow: none;
 }
 
 .showcase-img-container {
@@ -346,8 +376,37 @@ nav li a:after {
 .showcase-img-container-inner {
   display: flex;
   flex-direction: column;
-  gap: .25rem;
+  gap: 0.25rem;
   align-items: center;
+}
+
+.img-opener,
+.link-opener {
+  position: relative;
+}
+
+.img-opener::after,
+.link-opener::after {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  border: 1px var(--color-white) solid;
+  background-color: var(--color-primary);
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  z-index: 2;
+}
+
+.img-opener::after {
+  background-image: url("../images/grow.svg");
+}
+
+.link-opener::after {
+  background-image: url("../images/link.svg");
 }
 
 .tri-showcase {
@@ -357,7 +416,7 @@ nav li a:after {
 }
 
 details {
-  background-color: #fff;
+  background-color: var(--color-white);
 }
 
 details > div {
@@ -370,10 +429,10 @@ details > div {
 }
 
 summary {
-  background-color: #fff;
+  background-color: var(--color-white);
   font-family: GravityBold, sans-serif;
   padding: 1rem;
-  border: 1px #673479 solid;
+  border: 1px var(--color-primary) solid;
   cursor: pointer;
 }
 
@@ -400,13 +459,13 @@ summary {
 /* footer */
 
 footer {
-  color: #ffffff;
-  background-color: #d425a9;
+  color: var(--color-white);
+  background-color: var(--color-accent);
   padding: 15px;
   text-align: right;
   font-family: GravityLight;
   font-weight: lighter;
-  border-bottom: 5px #40afd4 solid;
+  border-bottom: 5px var(--color-blue) solid;
   font-size: 1rem;
   margin-top: 60px;
 }
@@ -417,25 +476,25 @@ footer p {
 }
 
 footer a:link {
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 footer a:link:hover {
   font-family: GravityBold, sans-serif;
-  color: #e034a9;
-  background-color: #ffffff;
-  text-decoration: underline #ffffff;
+  color: var(--color-secondary);
+  background-color: var(--color-white);
+  text-decoration: underline var(--color-white);
 }
 
 footer a:visited {
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 footer a:visited:hover {
   font-family: GravityBold, sans-serif;
-  color: #e034a9;
-  background-color: #ffffff;
-  text-decoration: underline #ffffff;
+  color: var(--color-secondary);
+  background-color: var(--color-white);
+  text-decoration: underline var(--color-white);
 }
 
 /* at-rules */
@@ -535,7 +594,7 @@ footer a:visited:hover {
     display: block;
     width: 100%;
     box-sizing: border-box;
-    border-bottom: 3px #ffffff solid;
+    border-bottom: 3px var(--color-white) solid;
   }
 
   main {
